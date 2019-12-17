@@ -33,7 +33,7 @@ public class ChoiceMoney extends Activity {
             @Override
             public void onClick(View v) {
                 //Тут флаг с передачей минуса
-                Intent intent = new Intent(ChoiceMoney.this, AddMoney.class); ///test
+                Intent intent = new Intent(ChoiceMoney.this, AddMoney.class);
                 startActivity(intent);
             }
         });
