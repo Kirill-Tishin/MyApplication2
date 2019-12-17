@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText; 
+import android.widget.EditText;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.dataBase.DbHelper;
