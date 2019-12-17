@@ -66,7 +66,7 @@ public class MenuActivity extends Activity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, ChoiceMoney.class);
+                Intent intent = new Intent(MenuActivity.this, ChoiceMoney.class); //choouse
                 startActivity(intent);
             }
         });

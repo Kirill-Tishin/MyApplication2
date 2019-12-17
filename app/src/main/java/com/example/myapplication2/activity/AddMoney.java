@@ -25,7 +25,7 @@ public class AddMoney extends Activity {
 
     private SumInc sumInc;
     private DbHelper dbHelper;
-    private int cameraResult;
+    private int cameraResult; //this saved camera
 
     @Override
     public void onCreate(Bundle bundle) {
