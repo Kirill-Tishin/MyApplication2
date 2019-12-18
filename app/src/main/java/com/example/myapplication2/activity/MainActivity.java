@@ -42,6 +42,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickForButton(View view){
-        textView.setText("This so so OK");
+        textView.setText("This so so OK"); //test commit
     }
 }
