@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.myapplication2.R;
 
 public class MainActivity extends AppCompatActivity {
- 
+
     private TextView textView;
     private Button button1;
     private Button button2;
