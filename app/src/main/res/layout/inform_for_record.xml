@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/textViewYouSum"
@@ -20,13 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="@string/title"/>
+    <TextView
+        android:id="@+id/dateAndTime"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/dateAndTime"/>
 
-    <Button
-        android:id="@+id/addImage"
-        android:layout_width="181dp"
-        android:layout_height="wrap_content"
-        android:text="Image"
-        tools:ignore="HardcodedText" />
+    <ImageView
+        android:id="@+id/imageSum"
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -34,10 +37,14 @@
         android:layout_height="100dp"
         android:text="@string/description"/>
 
+    <ImageButton
+        android:id="@+id/imageMap"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
     <Button
-        android:id="@+id/addRecordSum"
+        android:id="@+id/deleteRecordSum"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="Added"
-        tools:ignore="HardcodedText" />
+        android:text="@string/delete_record"/>
 </LinearLayout>

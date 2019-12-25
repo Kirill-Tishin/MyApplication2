@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Доходы/Расходы</string>
+    <string name="youSum">Ваша сумма</string>
+    <string name="add">Добавить</string>
+    <string name="sum">Сумма</string>
+    <string name="title">Название</string>
+    <string name="dateAndTime">Дата и время</string>
+    <string name="description">Описание</string>
+    <string name="delete_record">Удалить запись</string>
+</resources>

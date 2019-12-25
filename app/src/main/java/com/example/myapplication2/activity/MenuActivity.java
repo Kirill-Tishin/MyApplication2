@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -18,24 +17,29 @@ public class MenuActivity extends Activity {
 
     private TextView textView; //вывод всех денег на данный момент
     private Button buttonAdd;
-    private ListView listView;
+    private ListView listViewAllRecord;
     private Cursor cursor;
-    private SimpleCursorAdapter cursorAdapter;
+    private SimpleCursorAdapter simpleCursorAdapter;
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.menu);
 
-        this.textView = findViewById(R.id.textView);
-        this.buttonAdd = findViewById(R.id.buttonAdd);
-        this.listView = findViewById(R.id.listView);
+        this.textView = findViewById(R.id.textViewYouSum);
+        this.buttonAdd = findViewById(R.id.addRecordSum);
+        this.listViewAllRecord = findViewById(R.id.listViewAllRecord);
 
         DbHelper dbHelper = new DbHelper(this);
 
-        cursor=dbHelper.getDatabase().rawQuery("select title, summ from sum_inc",null);
+        cursor=dbHelper.getDatabase().rawQuery("select rowid _id, title, summ from sum_inc",null);//todo исправить на получение всего селекта, потом
         cursor.moveToFirst();
 
+        //Настройка листа на 2 колонки
+        String[] from = new String[] {"summ", "title"};
+        int[] to = new int[] { R.id.sumRecord, R.id.titleRecord };
+
+        //Проход по всем записям и записывание их в курсор
         if (cursor.moveToFirst()) {
 
             int indexTitle = cursor.getColumnIndex("title");
@@ -43,25 +47,25 @@ public class MenuActivity extends Activity {
 
             while (!cursor.isAfterLast()) {
                 String title = cursor.getString(indexTitle);
-                String summ = cursor.getString(indexSum);
+                String sum = cursor.getString(indexSum);
 
                 //Вывод, который нормально нужно переделать в лист
-
                 System.out.println();
-                System.out.println(title+"  "+summ);
+                System.out.println(title+"  "+sum);
                 System.out.println();
-
-                
 
                 cursor.moveToNext();
             }
         }
 
+        //Настройка курсора адаптера для отображения//todo WTF????
+        simpleCursorAdapter = new SimpleCursorAdapter(this,R.layout.item_record,cursor,from,to);
+        listViewAllRecord.setAdapter(simpleCursorAdapter);
+
+        // добавляем контекстное меню к списку
+        registerForContextMenu(listViewAllRecord);
+
         cursor.close();
-
-       // cursorAdapter = SimpleCursorAdapter(this);
-
-       // listView.se
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override

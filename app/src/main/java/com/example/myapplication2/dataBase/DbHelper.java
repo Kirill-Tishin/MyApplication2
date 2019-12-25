@@ -42,4 +42,14 @@ public class DbHelper extends SQLiteOpenHelper {
     public SQLiteDatabase getDatabase(){
         return database;
     }
+
+    //Удаление записи по id
+    public void deleteRecord(long idSum) {//todo либо передаем id либо класс, откуда получаем id смотря что получиться брать с формы, когда заполняется форма
+        database.delete(getNameTable(), "sum_id = " + idSum, null);
+    }
+
+    //Изменение записи по id
+    public void updateRecord(long idSum, ContentValues contentValues){
+        database.update(getNameTable(),contentValues,"sum_id = "+idSum,null);
+    }
 }

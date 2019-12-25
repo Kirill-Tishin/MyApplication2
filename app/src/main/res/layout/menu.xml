@@ -6,19 +6,20 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewYouSum"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="@string/textview" />
+        android:layout_height="wrap_content"
+        android:text="@string/youSum"
+        android:elevation="5dp"/>
 
     <Button
-        android:id="@+id/buttonAdd"
+        android:id="@+id/addRecordSum"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/add" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewAllRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>

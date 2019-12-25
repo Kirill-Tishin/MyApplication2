@@ -34,7 +34,7 @@ public class AddMoney extends Activity {
 
         //Сумма, название, время, описание, геолокация, фото,
         this.editTextSum = findViewById(R.id.editTextSum);
-        this.buttonAdd=findViewById(R.id.buttonAdd);
+        this.buttonAdd=findViewById(R.id.addRecordSum);
         this.editTextTitle=findViewById(R.id.editTextTitle);
         this.addImage=findViewById(R.id.addImage);
 
