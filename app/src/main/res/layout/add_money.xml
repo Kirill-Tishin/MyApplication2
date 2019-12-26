@@ -14,30 +14,31 @@
         android:id="@+id/editTextSum"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/sum"/>
+        android:inputType="phone"
+        android:hint="@string/sum"/>
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/title"/>
+        android:hint="@string/title"/>
 
     <Button
         android:id="@+id/addImage"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="Image"
+        android:text="@string/iconImage"
         tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/editTextDescription"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/description"/>
+        android:hint="@string/description"/>
 
     <Button
         android:id="@+id/addRecordSum"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="Added"
+        android:text="@string/add"
         tools:ignore="HardcodedText" />
 </LinearLayout>

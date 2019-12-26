@@ -7,4 +7,5 @@
     <string name="dateAndTime">Дата и время</string>
     <string name="description">Описание</string>
     <string name="delete_record">Удалить запись</string>
+    <string name="iconImage" translatable="false">Добавить изображение</string>
 </resources>

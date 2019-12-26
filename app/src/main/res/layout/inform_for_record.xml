@@ -10,12 +10,13 @@
         android:layout_height="50dp"
         android:text="@string/youSum" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextSum"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/sum"/>
-    <EditText
+        android:text="@string/sum" />
+
+    <TextView
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -31,7 +32,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/editTextDescription"
         android:layout_width="match_parent"
         android:layout_height="100dp"

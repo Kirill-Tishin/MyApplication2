@@ -7,4 +7,5 @@
     <string name="dateAndTime">Date and time</string>
     <string name="description">Description</string>
     <string name="delete_record">Delete Record</string>
+    <string name="iconImage" translatable="false">Add image</string>
 </resources>

@@ -3,8 +3,10 @@ package com.example.myapplication2.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.dataBase.DbHelper;
+import com.example.myapplication2.dataBase.SumInc;
 
 public class MenuActivity extends Activity {
 
@@ -20,6 +23,7 @@ public class MenuActivity extends Activity {
     private ListView listViewAllRecord;
     private Cursor cursor;
     private SimpleCursorAdapter simpleCursorAdapter;
+    private SQLiteDatabase sqLiteDatabase;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -30,48 +34,35 @@ public class MenuActivity extends Activity {
         this.buttonAdd = findViewById(R.id.addRecordSum);
         this.listViewAllRecord = findViewById(R.id.listViewAllRecord);
 
-        DbHelper dbHelper = new DbHelper(this);
+        final DbHelper dbHelper = new DbHelper(this);
+        sqLiteDatabase=dbHelper.getDatabase();
 
-        cursor=dbHelper.getDatabase().rawQuery("select rowid _id, title, summ from sum_inc",null);//todo исправить на получение всего селекта, потом
-        cursor.moveToFirst();
+        cursor = sqLiteDatabase.rawQuery("select rowid _id, title, summ from "+dbHelper.getNameTable(),null);
+        String[] headers = new String[] {"summ", "title"};
 
-        //Настройка листа на 2 колонки
-        String[] from = new String[] {"summ", "title"};
-        int[] to = new int[] { R.id.sumRecord, R.id.titleRecord };
+        simpleCursorAdapter=new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,
+                cursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
 
-        //Проход по всем записям и записывание их в курсор
-        if (cursor.moveToFirst()) {
-
-            int indexTitle = cursor.getColumnIndex("title");
-            int indexSum = cursor.getColumnIndex("summ");
-
-            while (!cursor.isAfterLast()) {
-                String title = cursor.getString(indexTitle);
-                String sum = cursor.getString(indexSum);
-
-                //Вывод, который нормально нужно переделать в лист
-                System.out.println();
-                System.out.println(title+"  "+sum);
-                System.out.println();
-
-                cursor.moveToNext();
-            }
-        }
-
-        //Настройка курсора адаптера для отображения//todo WTF????
-        simpleCursorAdapter = new SimpleCursorAdapter(this,R.layout.item_record,cursor,from,to);
         listViewAllRecord.setAdapter(simpleCursorAdapter);
 
-        // добавляем контекстное меню к списку
-        registerForContextMenu(listViewAllRecord);
-
-        cursor.close();
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sqLiteDatabase.close();
+                cursor.close();
                 Intent intent = new Intent(MenuActivity.this, ChoiceMoney.class);
                 startActivity(intent);
+            }
+        });
+
+        listViewAllRecord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MenuActivity.this, InformForRecord.class);
+                intent.putExtra("idRecord",id);
+                startActivity(intent);
+
             }
         });
     }
