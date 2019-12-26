@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-
-    <TextView
-        android:id="@+id/textViewYouSum"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="@string/youSum" />
-
-    <TextView
-        android:id="@+id/editTextSum"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/sum" />
-
-    <TextView
-        android:id="@+id/editTextTitle"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/title"/>
-    <TextView
-        android:id="@+id/dateAndTime"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/dateAndTime"/>
-
-    <ImageView
-        android:id="@+id/imageSum"
-        android:layout_width="300dp"
-        android:layout_height="300dp"/>
-
-    <TextView
-        android:id="@+id/editTextDescription"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/description"/>
-
-    <ImageButton
-        android:id="@+id/imageMap"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-
-    <Button
-        android:id="@+id/deleteRecordSum"
-        android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="@string/delete_record"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewYouSum"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/youSum" />
+
+        <TextView
+            android:id="@+id/editTextSum"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/sum" />
+
+        <TextView
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/title" />
+
+        <TextView
+            android:id="@+id/dateAndTime"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/dateAndTime" />
+
+        <ImageView
+            android:id="@+id/imageSum"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+
+        <TextView
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/description" />
+
+        <ImageButton
+            android:id="@+id/imageMap"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/deleteRecordSum"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_record" />
+    </LinearLayout>
+</ScrollView>

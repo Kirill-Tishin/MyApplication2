@@ -15,11 +15,15 @@ import com.example.myapplication2.dataBase.DbHelper;
 import com.example.myapplication2.dataBase.SumInc;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
 public class AddMoney extends Activity {
 
     private EditText editTextSum;
     private EditText editTextTitle;
+    private EditText editTextDescription;
     private Button buttonAdd;
     private Button addImage;
 
@@ -37,15 +41,29 @@ public class AddMoney extends Activity {
         this.buttonAdd=findViewById(R.id.addRecordSum);
         this.editTextTitle=findViewById(R.id.editTextTitle);
         this.addImage=findViewById(R.id.addImage);
+        this.editTextDescription=findViewById(R.id.editTextDescription);
 
         dbHelper = new DbHelper(this);
         sumInc = new SumInc();
 
+        Bundle arguments = getIntent().getExtras();
+        final Boolean flag = (Boolean) arguments.get("flag");
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sumInc.setSumm(Long.parseLong(editTextSum.getText().toString()));
+                if(flag){
+                    sumInc.setSumm(Long.parseLong(editTextSum.getText().toString()));
+                }else {
+                    sumInc.setSumm(Long.parseLong("-"+editTextSum.getText().toString()));
+                }
                 sumInc.setTitle(editTextTitle.getText().toString());
+                sumInc.setDescription(editTextDescription.getText().toString());
+
+                Date date = Calendar.getInstance().getTime();
+
+                sumInc.setDateTime(date);
+
                 dbHelper.insertTable(sumInc.getContentValues());
                 Intent intent = new Intent(AddMoney.this,MenuActivity.class);
                 startActivity(intent);
@@ -58,7 +76,6 @@ public class AddMoney extends Activity {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent,cameraResult);
 
-                //todo: this need save image
                 sumInc.setUrlImage(String.valueOf(cameraResult));
 
                 File photo = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");

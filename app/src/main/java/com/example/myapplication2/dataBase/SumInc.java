@@ -2,7 +2,7 @@ package com.example.myapplication2.dataBase;
 
 import android.content.ContentValues;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class SumInc {
     private int sumId;
@@ -11,7 +11,7 @@ public class SumInc {
     private long summ;
     private String urlImage;
     private String urlLocation;
-    private Calendar dateTime;
+    private Date dateTime;
 
     private ContentValues contentValues;
 
@@ -19,7 +19,7 @@ public class SumInc {
         contentValues = new ContentValues();
     }
 
-    public SumInc(int sumId, String title, String description, long summ, String urlImage, String urlLocation, Calendar dateTime) {
+    public SumInc(int sumId, String title, String description, long summ, String urlImage, String urlLocation, Date dateTime) {
         this.sumId = sumId;
         this.title = title;
         this.description = description;
@@ -100,13 +100,18 @@ public class SumInc {
         contentValues.put("url_geolocate",urlLocation);
     }
 
-    public Calendar getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Calendar dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
-       // contentValues.put("date_sum",dateTime.get); //todo: получить по отдельности из календаря
-       // contentValues.put("time_sum",urlLocation);
+        contentValues.put("date_sum",dateTime.getTime());
+        contentValues.put("time_sum",dateTime.getTime());
+    }
+
+    public void setDateTimeLong(Long dateTimeLong){
+        Date date = new Date(dateTimeLong);
+        setDateTime(date);
     }
 }

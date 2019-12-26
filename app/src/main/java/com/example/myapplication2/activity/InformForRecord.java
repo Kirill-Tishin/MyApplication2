@@ -1,7 +1,9 @@
 package com.example.myapplication2.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,7 +52,17 @@ public class InformForRecord extends Activity {
         editTextSum.setText(String.valueOf(sumInc.getSumm()));
         editTextTitle.setText(sumInc.getTitle());
         editTextDescription.setText(sumInc.getDescription());
+        //todo Сделать красоту из даты
+        dateAndTime.setText(String.valueOf(sumInc.getDateTime()));
 
+        deleteRecordSum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHelper.deleteRecord(sumInc.getSumId());
+                Intent intent = new Intent(InformForRecord.this,MenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public SumInc getSumInc() {

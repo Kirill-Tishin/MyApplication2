@@ -12,6 +12,7 @@ public class ChoiceMoney extends Activity {
 
     private Button buttonPlusMoney;
     private Button buttonMinusMoney;
+    private Button buttonMap;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -20,11 +21,13 @@ public class ChoiceMoney extends Activity {
 
         this.buttonPlusMoney = findViewById(R.id.buttonPlusMoney);
         this.buttonMinusMoney = findViewById(R.id.buttonMinusMoney);
+        this.buttonMap = findViewById(R.id.buttonMap);
 
         buttonPlusMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChoiceMoney.this, AddMoney.class);
+                intent.putExtra("flag",true);
                 startActivity(intent);
             }
         });
@@ -32,9 +35,16 @@ public class ChoiceMoney extends Activity {
         buttonMinusMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Тут флаг с передачей минуса
                 Intent intent = new Intent(ChoiceMoney.this, AddMoney.class);
+                intent.putExtra("flag",false);
                 startActivity(intent);
+            }
+        });
+
+        buttonMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

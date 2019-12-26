@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.dataBase.DbHelper;
-import com.example.myapplication2.dataBase.SumInc;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class MenuActivity extends Activity {
 
@@ -45,12 +47,9 @@ public class MenuActivity extends Activity {
 
         listViewAllRecord.setAdapter(simpleCursorAdapter);
 
-
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sqLiteDatabase.close();
-                cursor.close();
                 Intent intent = new Intent(MenuActivity.this, ChoiceMoney.class);
                 startActivity(intent);
             }
@@ -62,7 +61,6 @@ public class MenuActivity extends Activity {
                 Intent intent = new Intent(MenuActivity.this, InformForRecord.class);
                 intent.putExtra("idRecord",id);
                 startActivity(intent);
-
             }
         });
     }

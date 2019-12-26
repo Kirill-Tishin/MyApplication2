@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textViewYouSum"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="@string/youSum" />
-
-    <EditText
-        android:id="@+id/editTextSum"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:inputType="phone"
-        android:hint="@string/sum"/>
-    <EditText
-        android:id="@+id/editTextTitle"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="@string/title"/>
-
-    <Button
-        android:id="@+id/addImage"
-        android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="@string/iconImage"
-        tools:ignore="HardcodedText" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="@string/description"/>
+        <TextView
+            android:id="@+id/textViewYouSum"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/youSum" />
 
-    <Button
-        android:id="@+id/addRecordSum"
-        android:layout_width="181dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        tools:ignore="HardcodedText" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/editTextSum"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/sum"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/title" />
+
+        <Button
+            android:id="@+id/addImage"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:text="@string/iconImage" />
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/description" />
+
+        <Button
+            android:id="@+id/addRecordSum"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add"/>
+    </LinearLayout>
+</ScrollView>

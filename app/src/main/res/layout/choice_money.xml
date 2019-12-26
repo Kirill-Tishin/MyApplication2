@@ -26,4 +26,11 @@
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="208dp"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonMap"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="@string/button_map"
+        android:textSize="50sp"/>
 </LinearLayout>

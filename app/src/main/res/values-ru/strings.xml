@@ -7,5 +7,6 @@
     <string name="dateAndTime">Дата и время</string>
     <string name="description">Описание</string>
     <string name="delete_record">Удалить запись</string>
+    <string name="button_map">Тут карта</string>
     <string name="iconImage" translatable="false">Добавить изображение</string>
 </resources>

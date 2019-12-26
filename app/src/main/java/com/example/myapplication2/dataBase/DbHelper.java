@@ -94,23 +94,20 @@ public class DbHelper extends SQLiteOpenHelper {
                         sumInc.setSumm(Long.parseLong(cursor.getString(3)));
                         sumInc.setUrlImage(cursor.getString(4));
                         sumInc.setUrlLocation(cursor.getString(5));
-
-                      //  Calendar calendar = cursor.get
-
-                      //  sumInc.setDateTime();
+                        sumInc.setDateTimeLong(cursor.getLong(6));
 
                         list.add(sumInc);
                     } while (cursor.moveToNext());
                 }
             } finally {
                 try {
-                    cursor.close();
+                   // cursor.close();
                 } catch (Exception ignore) {
                 }
             }
         } finally {
             try {
-                db.close();
+             //   db.close();
             } catch (Exception ignore) {
             }
         }
